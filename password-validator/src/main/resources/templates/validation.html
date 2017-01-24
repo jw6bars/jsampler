@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Validated Password</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    
+	<div th:if="${password.valid}">
+	   <h2>This password is valid</h2>
+	</div>
+	
+	<div th:unless="${password.valid}">
+	   <h2>This password is NOT valid</h2>
+	</div>
+    
+    <p th:text="${password.password}" />
+    
+    <div th:unless="${password.valid}">
+       <h4><p th:text="${password.reason}" /></h4>
+    </div>
+    
+    <form method="get" action="/password">
+        <button type="submit">Validate Another Password</button>
+    </form>
+    
+</body>
+</html>
